@@ -1,6 +1,7 @@
 
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
+from twilio.rest import Client
 from gsheet_func import *
 
 from dateutil.parser import parse
@@ -8,7 +9,6 @@ from dateutil.parser import parse
 
 app = Flask(__name__)
 count=0
-
 
 @app.route("/sms", methods=['POST'])
 def reply():
@@ -25,8 +25,7 @@ def reply():
         responded = True
 
     if len(words) == 1 and "sim" in incoming_msg:
-        reminder_string = "Digite a data do culto.\n\n"\
-        "*Date @* _type the date_ "
+        reminder_string = "Digite a data do culto."
         message.body(reminder_string)
         responded = True
     if len(words) == 1 and "não" in incoming_msg:
