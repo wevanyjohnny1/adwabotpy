@@ -25,8 +25,8 @@ def reply():
         responded = True
 
     if len(words) == 1 and "sim" in incoming_msg:
-        reminder_string = "Digite a data do culto."
-        message.body(reminder_string)
+        reminder_string = "Digite a data do culto.
+        message.body("*Date @* " + reminder_string)
         responded = True
     if len(words) == 1 and "não" in incoming_msg:
         reply="Ok. Have a nice day!"
