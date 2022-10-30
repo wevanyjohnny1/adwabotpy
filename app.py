@@ -25,8 +25,9 @@ def reply():
         responded = True
 
     if len(words) == 1 and "sim" in incoming_msg:
-        reminder_string = "Digite a data do culto."
-        message.body("*Date @* " + reminder_string)
+        reminder_string = "Digite a data do culto.\n\n"\
+        "*Date @* Data do culto "
+        message.body(reminder_string)
         responded = True
     if len(words) == 1 and "não" in incoming_msg:
         reply="Ok. Have a nice day!"
@@ -38,7 +39,7 @@ def reply():
         input_string = words[1].strip()
         if input_type == "date":
             reply="Digite o código do templo.\n\n"\
-            "*Reminder @* _type the message_"
+            "*Reminder @* código do templo"
             set_reminder_date(input_string)
             message.body(reply)
             responded = True
